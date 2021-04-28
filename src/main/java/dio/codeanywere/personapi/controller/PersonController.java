@@ -1,12 +1,14 @@
 package dio.codeanywere.personapi.controller;
 
-import dio.codeanywere.personapi.dto.MessageResponseDTO;
-import dio.codeanywere.personapi.entity.Person;
+import dio.codeanywere.personapi.dto.request.PersonDTO;
+import dio.codeanywere.personapi.dto.response.MessageResponseDTO;
 import dio.codeanywere.personapi.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @AllArgsConstructor(onConstructor = @__(@Autowired))
@@ -17,8 +19,8 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPerson(@RequestBody Person person) {
-        return personService.createPerson(person);
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
+        return personService.createPerson(personDTO);
     }
 
 }

@@ -1,4 +1,4 @@
-package dio.codeanywere.personapi.dto;
+package dio.codeanywere.personapi.dto.response;
 
 
 import lombok.Builder;

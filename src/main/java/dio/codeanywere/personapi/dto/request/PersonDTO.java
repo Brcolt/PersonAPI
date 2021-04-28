@@ -1,4 +1,4 @@
-package dio.codeanywere.personapi.dto;
+package dio.codeanywere.personapi.dto.request;
 
 import dio.codeanywere.personapi.entity.Phone;
 import lombok.AllArgsConstructor;
@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -29,11 +30,13 @@ public class PersonDTO {
     private String lastName;
 
     @NotEmpty
+    @Valid
     @CPF
     private String cpf;
 
     private String birthDate;
 
+    @Valid
     @NotEmpty
     private List<Phone> phones;
 
