@@ -2,6 +2,7 @@ package dio.codeanywere.personapi.controller;
 
 import dio.codeanywere.personapi.dto.request.PersonDTO;
 import dio.codeanywere.personapi.dto.response.MessageResponseDTO;
+import dio.codeanywere.personapi.exception.PersonNotFoundException;
 import dio.codeanywere.personapi.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class PersonController {
     @ResponseStatus(HttpStatus.OK)
     public List<PersonDTO> listAll() {
         return personService.listAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+        return personService.findById(id);
     }
 
 }
