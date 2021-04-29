@@ -6,7 +6,6 @@ import dio.codeanywere.personapi.builder.PhoneDTOBuilder;
 import dio.codeanywere.personapi.dto.request.PersonDTO;
 import dio.codeanywere.personapi.dto.request.PhoneDTO;
 import dio.codeanywere.personapi.dto.response.MessageResponseDTO;
-import dio.codeanywere.personapi.entity.Person;
 import dio.codeanywere.personapi.entity.Phone;
 import dio.codeanywere.personapi.exception.PersonNotFoundException;
 import dio.codeanywere.personapi.mapper.PersonMapper;
@@ -17,17 +16,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -175,11 +170,10 @@ public class PersonControllerTest {
                 .andExpect(status().isOk());
 
 
-
     }
 
     @Test
-    void whenDeleteIsCalledThenNoContentStatusIsReturned() throws Exception{
+    void whenDeleteIsCalledThenNoContentStatusIsReturned() throws Exception {
 
         //Given
         PersonDTO personDTO = PersonDTOBuilder.builder().build().toPersonDTO();
@@ -193,7 +187,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    void whenDeleteIsCalledWithInvalidIdThenNotFoundStatusIsReturned() throws Exception{
+    void whenDeleteIsCalledWithInvalidIdThenNotFoundStatusIsReturned() throws Exception {
 
 
         //when

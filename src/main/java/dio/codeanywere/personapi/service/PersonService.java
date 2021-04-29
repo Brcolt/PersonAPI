@@ -30,10 +30,10 @@ public class PersonService {
     }
 
     public List<PersonDTO> listAll() {
-      return personRepository.findAll()
-              .stream()
-              .map(personMapper::toDTO)
-              .collect(Collectors.toList());
+        return personRepository.findAll()
+                .stream()
+                .map(personMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public PersonDTO findById(Long id) throws PersonNotFoundException {

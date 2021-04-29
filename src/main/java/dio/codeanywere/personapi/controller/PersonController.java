@@ -42,7 +42,7 @@ public class PersonController {
                                          @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
         return personService.update(id, personDTO);
     }
-    
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteByid(@PathVariable Long id) throws PersonNotFoundException {
